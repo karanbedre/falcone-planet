@@ -14,6 +14,7 @@ export class FindComponent implements OnInit {
   public planets = [];
   public vehicles = [];
   public finalTime = 0;
+  public all;
   public timeTaken = new Speed();
   public findFalcone = new FindFalcone();
   public destinationForm: FormGroup;
