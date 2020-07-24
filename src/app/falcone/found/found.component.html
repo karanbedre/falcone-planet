@@ -1,0 +1,48 @@
+<div class="found" *ngIf="getData != undefined else notAllowed;">
+    <div class="row no-gutter">
+        <div class="col-md-12 text-center">
+            <h3 *ngIf="getData.status == 'success'">
+                Success! Congratulations on Finding Falcone. King Shan is mighty pleased.
+            </h3>
+            <h3 *ngIf="getData.status == 'false'">
+                Failed! King Shan is not pleased.
+            </h3>
+        </div>
+    </div>
+
+    <div class="row no-gutter m-10">
+        <div class="col-md-12 text-center">
+            <h4>
+                Time taken : {{getData.time}}
+            </h4>
+        </div>
+    </div>
+
+    <div class="row no-gutter m-10">
+        <div class="col-md-12 text-center">
+            <h4 *ngIf="getData.status == 'success'">
+                Plane found : {{getData.planet_name}}
+            </h4>
+            <h4 *ngIf="getData.status == 'false'">
+                Plane found : Not found
+            </h4>
+        </div>
+    </div>
+
+    <div class="row no-gutter m-10">
+        <div class="col-md-12 text-center">
+            <button [routerLink]="['/falcone']">Start again</button>
+        </div>
+    </div>
+</div>
+<ng-template #notAllowed>
+    <div class="found m-10">
+        <h4 class="text-center">King Shan is lost, help him find his planet by starting again</h4>
+    </div>
+
+    <div class="row no-gutter m-10">
+        <div class="col-md-12 text-center">
+            <button [routerLink]="['/falcone']">Start again</button>
+        </div>
+    </div>
+</ng-template>

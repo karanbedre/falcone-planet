@@ -1,0 +1,32 @@
+header {
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 80px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.35);
+    background: #232f3e;
+    z-index: 999;
+    .row {
+        align-items: center;
+        height: 100%;
+    }
+    .txt-color {
+        color: white;
+    }
+    .header-name {
+        float: left;
+
+        h3 {
+            color: white;
+            padding-left: 20px;
+            font-size: 24px;
+            font-weight: normal;
+            margin: 0;
+        }
+    }
+}
+
+header {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}

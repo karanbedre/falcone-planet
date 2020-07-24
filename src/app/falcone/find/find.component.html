@@ -1,0 +1,115 @@
+<div class="find">
+    <div class="row no-gutter">
+        <div class="col-md-12 text-center">
+            <h4>
+                Select planets you want to search in:
+            </h4>
+        </div>
+    </div>
+    <div>
+        <form [formGroup]="destinationForm" class="row no-gutter m-10">
+            <div class="col-md-3 planet-vehicle">
+                <label for="option">Destination 1</label>
+                <select name="option" formControlName="destionationOne" id="option1"
+                    (change)="selectPlanet('destionationOne')">
+                    <option value="all" [disabled]="true" [selected]="all"> Please select one planet </option>
+                    <ng-container *ngFor="let item of planets">
+                        <option value="{{item.name}}" [disabled]="item.selected">{{item.name}}</option>
+                    </ng-container>
+                </select>
+
+                <div *ngIf="destinationForm.controls.destionationOne.dirty">
+                    <div *ngFor="let item_vehicle of vehicles">
+                        <label for="item_vehicle_destination{{item_vehicle.name}}">
+                            <input id="item_vehicle_destination{{item_vehicle.name}}"
+                                (change)="vehicleType(item_vehicle, $event,'vehicleOne', 'destionationOne')"
+                                [value]='item_vehicle.name' type="radio" name="vehicleOne"
+                                [disabled]="item_vehicle.total_no == 0">
+                            {{item_vehicle.name}} ({{item_vehicle.total_no}})
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 planet-vehicle">
+                <label for="option2">Destination 2</label>
+                <select name="option2" id="option2" formControlName="destionationTwo"
+                    (change)="selectPlanet('destionationTwo')">
+                    <option value="all" disabled [selected]="all"> Please select one planet</option>
+                    <ng-container *ngFor="let item of planets">
+                        <option value="{{item.name}}" [disabled]="item.selected">{{item.name}}</option>
+                    </ng-container>
+                </select>
+                <div *ngIf="destinationForm.controls.destionationTwo.dirty">
+                    <div *ngFor="let item_vehicle of vehicles">
+                        <label for="item_vehicle_destinationTwo{{item_vehicle.name}}">
+                            <input id="item_vehicle_destinationTwo{{item_vehicle.name}}"
+                                (change)="vehicleType(item_vehicle, $event,'vehicleTwo','destionationTwo')"
+                                [value]='item_vehicle.name' type="radio" name="vehicleTwo"
+                                [disabled]="item_vehicle.total_no == 0">
+                            {{item_vehicle.name}} ({{item_vehicle.total_no}})
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 planet-vehicle">
+                <label for="option3">Destination 3</label>
+                <select name="option3" id="option3" formControlName="destionationThree"
+                    (change)="selectPlanet('destionationThree')">
+                    <option value="all" disabled [selected]="all"> Please select one planet </option>
+                    <ng-container *ngFor="let item of planets">
+                        <option value="{{item.name}}" [disabled]="item.selected">{{item.name}}</option>
+                    </ng-container>
+                </select>
+
+                <div *ngIf="destinationForm.controls.destionationThree.dirty">
+                    <div *ngFor="let item_vehicle of vehicles">
+                        <label for="item_vehicle_destinationThree{{item_vehicle.name}}">
+                            <input id="item_vehicle_destinationThree{{item_vehicle.name}}"
+                                (change)="vehicleType(item_vehicle, $event, 'vehicleThree', 'destionationThree')"
+                                [value]='item_vehicle.name' type="radio" name="vehicleThree"
+                                [disabled]="item_vehicle.total_no == 0">
+                            {{item_vehicle.name}} ({{item_vehicle.total_no}})
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 planet-vehicle">
+                <label for="option4">Destination 4</label>
+                <select name="option4" id="option4" formControlName="destionationFour"
+                    (change)="selectPlanet('destionationFour')">
+                    <option value="all" disabled [selected]="all"> Please select one planet </option>
+                    <ng-container *ngFor="let item of planets">
+                        <option value="{{item.name}}" [disabled]="item.selected">{{item.name}}</option>
+                    </ng-container>
+                </select>
+                <div *ngIf="destinationForm.controls.destionationFour.dirty">
+                    <div *ngFor="let item_vehicle of vehicles">
+                        <label for="item_vehicle_destinationFour{{item_vehicle.name}}">
+                            <input id="item_vehicle_destinationFour{{item_vehicle.name}}"
+                                (change)="vehicleType(item_vehicle, $event,'vehicleFour', 'destionationFour')"
+                                [value]='item_vehicle.name' type="radio" name="vehicleFour"
+                                [disabled]="item_vehicle.total_no == 0">
+                            {{item_vehicle.name}} ({{item_vehicle.total_no}})
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-actions text-center col-md-12">
+                <button type="submit" name="submit" (click)="findPlanet()"
+                    [disabled]="destinationForm.invalid || destinationForm.pristine">Submit</button>
+            </div>
+        </form>
+
+        <div class="row no-gutter">
+            <div class="time-taken col-md-12 text-center">
+                <h3>
+                    Time Taken:{{finalTime}}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
