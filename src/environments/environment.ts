@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://findfalcone.herokuapp.com/'
+  baseUrl: 'https://cors-anywhere.herokuapp.com/https://findfalcone.herokuapp.com/'
 };
 
 /*
